@@ -1,0 +1,78 @@
+
+name: Run Tests for Website
+on: [push, pull_request]
+jobs:
+  CI-for-Website-Django-Project:
+    runs-on : ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: pychronicles_db
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+      selenium:
+        image: selenium/standalone-chrome:latest
+        options: --health-cmd="curl --silent --fail localhost:4444/wd/hub/status || exit 1" --health-interval=30s --health-timeout=30s --health-retries=5
+        ports:
+          - 4444:4444
+
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        python-version: ["3.13"]
+        poetry-version: ["2.2.1"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run image
+        uses: abatilo/actions-poetry@v4
+        with:
+          poetry-version: ${{ matrix.poetry-version }}
+      - name: View poetry --help
+        run: poetry --help
+
+      - name: Setup a local virtual environment for Website
+        working-directory: ./accounts
+        run: |
+          poetry config virtualenvs.create true --local
+          poetry config virtualenvs.in-project true --local
+      - uses: actions/cache@v4
+        name: Define a cache for the virtual environment based on the dependencies lock file
+        with:
+          path: ./.venv
+          key: venv-${{ hashFiles('poetry.lock') }}
+      - name: Install the project dependencies for Website
+        working-directory: ./website
+        run: |
+          poetry install
+      - name: Run Website Migrations and Tests
+        working-directory: ./website
+        run: |
+          poetry run python manage.py migrate
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: pychronicles_db
+      - name: Run Website Tests
+        working-directory: ./website
+        run: |
+          poetry run pytest --cov-branch --cov-report=xml
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: pychronicles_db
+
+      - name: Upload Website coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: amakarudze/pychronicles
