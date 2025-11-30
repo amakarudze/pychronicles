@@ -1,0 +1,101 @@
+services:
+  website:
+    build: ./website
+    env_file: ./website/.env
+    entrypoint: ["./entrypoint.sh"]
+    command: ["gunicorn", "website.wsgi:application", "--bind", "0.0.0.0:8000"]
+    volumes:
+      - static_website:/website/static
+    depends_on:
+      - website_db
+    networks:
+      - internal
+    ports:
+      - "8001:8000"
+
+  website_db:
+    image: postgres:18
+    env_file: ./website/.env 
+    environment:
+      POSTGRES_DB:      ${POSTGRES_DB}
+      POSTGRES_USER:    ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - website_data:/var/lib/postgresql
+    networks:
+      - internal
+
+  blog:
+    build: ./blog
+    env_file: ./blog/.env
+    entrypoint: ["./entrypoint.sh"]
+    volumes:
+      - static_blog:/blog/static
+    depends_on:
+      - blog_db
+    networks:
+      - internal
+    ports:
+      - "8002:8000"
+
+  blog_db:
+    image: postgres:18
+    env_file: ./blog/.env 
+    environment:
+      POSTGRES_DB: ${BLOG_DB}
+      POSTGRES_USER: ${BLOG_USER}
+      POSTGRES_PASSWORD: ${BLOG_PASSWORD}
+    volumes:
+      - blog_data:/var/lib/postgresql
+    networks:
+      - internal
+
+  accounts:
+    build: ./accounts
+    env_file: ./accounts/.env
+    entrypoint: ["./entrypoint.sh"]
+    command: ["gunicorn", "accounts.wsgi:application", "--bind", "0.0.0.0:8000"]
+    volumes:
+      - static_accounts:/accounts/static
+    depends_on:
+      - accounts_db
+    networks:
+      - internal
+    ports:
+      - "8003:8000"
+
+  accounts_db:
+    image: postgres:18
+    env_file: ./accounts/.env
+    environment:
+      POSTGRES_DB: ${ACCOUNTS_DB}
+      POSTGRES_USER: ${ACCOUNTS_USER}
+      POSTGRES_PASSWORD: ${ACCOUNTS_PASSWORD}
+    volumes:
+      - accounts_data:/var/lib/postgresql
+    networks:
+      - internal
+
+  nginx:
+    image: nginx:stable
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - website
+      - blog
+      - accounts
+    networks:
+      - internal
+
+networks:
+  internal:
+
+volumes:
+  website_data:
+  blog_data:
+  accounts_data:
+  static_website:
+  static_blog:
+  static_accounts:

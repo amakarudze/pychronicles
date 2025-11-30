@@ -1,23 +1,25 @@
-FROM python:3.13-alpine3.22
+FROM ubuntu:24.04
 
-RUN pip install poetry==2.2.1
-
-ENV POETRY_NO_INTERACTION=1 \
-    POETRY_VIRTUALENVS_IN_PROJECT=1 \
-    POETRY_VIRTUALENVS_CREATE=1 \
-    POETRY_CACHE_DIR=/tmp/poetry_cache
-
+ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /blog
 
-COPY /blog/pyproject.toml .
-RUN touch README.md
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3.12 python3.12-venv python3-pip build-essential libpq-dev postgresql-client git curl libffi-dev libssl-dev netcat-openbsd \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN poetry install --without dev --no-root && rm -rf $POETRY_CACHE_DIR
+RUN python3.12 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+RUN pip install --upgrade pip setuptools wheel
+RUN pip install poetry==2.2.1
+
+COPY pyproject.toml poetry.lock* ./
+RUN poetry install --without dev --no-root
 
 COPY . .
 
-RUN poetry install --without dev --no-root
+COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
 
 EXPOSE 8000
-
-CMD ["gunicorn", "accounts.wsgi:application", "--bind", "0.0.0.0:8000"]
+ENTRYPOINT ["./entrypoint.sh"]

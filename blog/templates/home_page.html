@@ -1,0 +1,53 @@
+{% extends "blog/wagtail_base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-blogindexpage{% endblock %}
+
+{% block content %}
+
+    <!-- end of header section -->
+    <section class="section-gap" style="padding-bottom: 0;">
+        <div class="container-xxl">
+            <div class="section-heading">
+                <h2 class="heading s-title">{{ page.title }}</h2>
+                <p>{{ page.intro|richtext }}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- list of blogs -->
+    <section class="popular-work section-gap" style="padding-top: 40px;">
+        <div class="container-xxl">
+            {% for post in page.get_children %}
+            {% with post=post.specific %}
+                {% if forloop.first %}<div class="row">{% endif %}
+                    <div class="col-md-4">
+                        <div class="work-card drop-shadow-c">
+                            <div class="about-images">
+                                {% with post.main_image as main_image %}
+                                    {% if main_image %}{% picture main_image width-400 %}{% endif %}
+                                {% endwith %}
+                            </div>
+
+                            <article class="post">
+                                <time class="date">
+                                    {{ post.first_published_at }}
+                                </time>
+                                <h3 class="sub-headingtitle"><a href="{% pageurl post %}">{{ post.title }}</a></h3>
+                                <p>{{ post.specific.intro }}</p>
+                                <p>{{ post.specific.body|richtext }}</p>
+                            </article>
+                            <a class="p-button tertiary" href="{% pageurl post %}">Read More<svg xmlns="http://www.w3.org/2000/svg" width="12"
+                                    height="10" viewBox="0 0 12 10" fill="none">
+                                    <path
+                                        d="M9.793 4.4999H0.5C0.367392 4.4999 0.240215 4.55258 0.146447 4.64635C0.0526785 4.74011 0 4.86729 0 4.9999C0 5.13251 0.0526785 5.25968 0.146447 5.35345C0.240215 5.44722 0.367392 5.4999 0.5 5.4999H9.793L6.146 9.1459C6.05211 9.23979 5.99937 9.36712 5.99937 9.4999C5.99937 9.63267 6.05211 9.76001 6.146 9.8539C6.23989 9.94779 6.36722 10.0005 6.5 10.0005C6.63278 10.0005 6.76011 9.94779 6.854 9.8539L11.354 5.3539C11.4006 5.30745 11.4375 5.25228 11.4627 5.19153C11.4879 5.13079 11.5009 5.06567 11.5009 4.9999C11.5009 4.93413 11.4879 4.86901 11.4627 4.80827C11.4375 4.74752 11.4006 4.69234 11.354 4.6459L6.854 0.145899C6.76011 0.0520124 6.63278 -0.000732422 6.5 -0.000732422C6.36722 -0.000732422 6.23989 0.0520124 6.146 0.145899C6.05211 0.239786 5.99937 0.367123 5.99937 0.499899C5.99937 0.632675 6.05211 0.760013 6.146 0.853899L9.793 4.4999Z"
+                                        fill="black" />
+                                </svg></a>
+                        </div></div>
+                {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+                    {% if forloop.last %}</div>{% endif %} {% endwith %}
+            {% endfor %}    
+        </div>
+    </section>
+{% endblock %}

@@ -7,7 +7,7 @@ authors = [
 ]
 license = {text = "MIT"}
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12,<4.0"
 dependencies = [
     "django (==5.2.8)",
     "python-dotenv (==1.2.1)",
@@ -17,7 +17,9 @@ dependencies = [
     "pre-commit (>=4.4.0,<5.0.0)",
     "black (>=25.9.0,<26.0.0)",
     "psycopg2-binary (>=2.9.11,<3.0.0)",
-    "dj-database-url (>=3.0.1,<4.0.0)"
+    "wagtail-headless-preview (>=0.8.0,<0.9.0)",
+    "djangorestframework (>=3.16.1,<4.0.0)",
+    "djangorestframework-simplejwt (>=5.5.1,<6.0.0)"
 ]
 
 [dependency-groups]

@@ -1,0 +1,76 @@
+{% extends "blog/wagtail_base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-blogpage{% endblock %}
+
+{% block content %}
+<section class="section-gap" style="padding-bottom: 0;">
+    <div class="container-xxl">
+        <div class="section-heading">
+            <h2 class="heading s-title">{{ page.title }}</h2>
+            <p class="meta">{{ page.date }}</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-gap" style="padding-top: 40px;">
+    <div class="container-xxl">
+
+        <!-- image on the left section -->
+        <div class="about-section bog-first-section" style="
+        max-width: 992px;
+        margin: 0 auto;">
+            <div class="about-images" style="margin: 0;">
+                <div class="drop-shadow-c about-images">{% with page.main_image as main_image %}
+                    {% if main_image %}{% image main_image width-400 %}{% endif %}
+                {% endwith %}</div>
+            </div>
+            <div class="about-content" style="margin: 1rem 0;">
+                
+
+                <p>{{ page.intro }}</p>
+
+                <p></p>
+            </div>
+        </div>
+
+        <!-- text only section -->
+        <div class="about-section" style="
+        max-width: 992px;
+        margin: 0 auto;">
+            <div class="about-content" style="margin: 1rem 0;">    
+                {{ page.text|richtext }}
+            </div>
+        </div>
+
+        <!-- image on the right section -->
+        <div class="about-section" style="
+        max-width: 992px;
+        margin: 0 auto;">
+            <div class="about-content" style="margin: 1rem 0;">
+                <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
+            </div>
+            <div class="about-images" style="margin: 0;">
+                <div class="drop-shadow-c about-images">{% with page.second_image as second_image %}
+                    {% if second_image %}{% picture second_image width-400 %}{% endif %}
+                {% endwith %}</div>
+            </div>
+            
+        </div>
+        <div class="about-section" style="
+        max-width: 992px;
+        margin: 0 auto;">
+            {% if page.tags.all.count %}
+                <div class="tags">
+                    <h3>Tags</h3>
+                    {% for tag in page.tags.all %}
+                        <a href="{% slugurl 'tags' %}?tag={{ tag }}"><button type="button">{{ tag }}</button></a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

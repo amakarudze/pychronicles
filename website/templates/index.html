@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<!-- banner section -->
+<section class="section-gap" style="padding-top: 0;">
+  <div class="container-xxl">
+      <!-- Text Content -->
+      <div class="banner-container">
+          <div class="content">
+              <span class="subtitle">Exploring the world of Python and Django ecosystem.</span>
+              <h1>PyChronicles with Anna</h1>
+              <p>I am software engineer, conference organiser and community leader in the Python/Django community. 
+                I love working with Python and Django for web development and sharing my knowledge with others through 
+                technical writing. I am currently pursuing a MSc in Software Engineering at Blekinge Institute of Technology in Sweden 
+              courtesy of the Swedish Institute Global Professionals Scholarship.</p>
+              <div class="social-links">
+                {% include "includes/socials.html" %}
+              </div>
+          </div>
+
+          <!-- Image and Labels -->
+          <div class="image-wrapper">
+              <img class="banner-image" src="{% static 'images/bannger1.png' %}" alt="Person">
+              <img class="background-element" src="{% static 'images/background-element.png' %}" alt="background-element">
+              <div class="label top">Software Engineer</div>
+              <div class="label bottom-left">Django Girls Foundation Fundraising Coordinator/Trustee</div>
+              <div class="label bottom-right">Former President, Django Software Foundation</div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- about section -->
+<section class="section-gap">
+  <div class="container-xxl">
+      <div class="about-section">
+          <img class="background-element1" src="{% static 'images/background-element1.png' %}" alt="">
+          <div class="about-images">
+              <img class="drop-shadow-c" src="{% static 'images/python-section.png' %}" alt="">
+              <img class="drop-shadow-c" src="{% static 'images/day-2-chilling.jpg' %}" alt="">
+          </div>
+          <div class="about-content">
+              <h2 class="s-title">Unveiling My Path in Python Programming</h2>
+              <p>My coding journey began when I was 14 years old, attending Zimuto High School in Masvingo, 
+                Zimbabwe. I studied Computer Studies for my O Level, and I loved it. We used Windows 95 and 
+                DOS machines back then, coding in BASIC and dBase III for databases.  Internet access was very 
+                limited, and we mainly relied on our teachers and a few textbooks to learn programming. 
+                However, I still enjoyed it and pursued Computing at A Level, followed by a BSc in Computer 
+                Science at Midlands State University. </p>
+              <p>After graduation, I planned to work in telecoms, focusing on network engineering and systems 
+                administration to gain additional ICT experience before returning to software engineering and 
+                consultancy after five years. Although I entered consultancy after that period, it took me 
+                some time to return to coding. In 2015, I learnt Python through the Muzinda Hub Digital Skills 
+                programme, using the Treehouse online platform. Since then, I have coded in Python, developed 
+                websites with Django, and actively participated in the Python community.</p>
+                
+              <div class="label" style="position: initial;margin-top: 2rem;"><span>15+</span> Years Experience in the ICT industry
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- work -->
+<section class="section-gap">
+  <div class="container-xxl">
+      <div class="section-heading">
+          <h2 class="heading s-title">What I do</h2>
+          <p>I love the Python community and appreciate the open-source events, especially the smaller 
+            PyCons and DjangoCons. Below is some of my work!</p>
+      </div>
+      <div class="row">
+          <div class="col-md-4">
+              <div class="work-card drop-shadow-c">
+                  <img src="{% static 'images/closing-remarks.jpg' %}" alt="">
+                  <h3 class="sub-headingtitle">Software Engineer</h3>
+                  <p>
+                    I have worked as a freelance software engineer for many years, combining that with ICT 
+                    advisory services. I develop websites and do DevOps for my clients, utilising my previous 
+                    systems administration skills. I also maintain the Django Girls resources by writing code 
+                    and handling the Ops side for the Django Girls Foundation.
+                  </p>
+                  <a class="s-link" href="">See my work <svg xmlns="http://www.w3.org/2000/svg" width="12"
+                          height="10" viewBox="0 0 12 10" fill="none">
+                          <path
+                              d="M9.793 4.4999H0.5C0.367392 4.4999 0.240215 4.55258 0.146447 4.64635C0.0526785 4.74011 0 4.86729 0 4.9999C0 5.13251 0.0526785 5.25968 0.146447 5.35345C0.240215 5.44722 0.367392 5.4999 0.5 5.4999H9.793L6.146 9.1459C6.05211 9.23979 5.99937 9.36712 5.99937 9.4999C5.99937 9.63267 6.05211 9.76001 6.146 9.8539C6.23989 9.94779 6.36722 10.0005 6.5 10.0005C6.63278 10.0005 6.76011 9.94779 6.854 9.8539L11.354 5.3539C11.4006 5.30745 11.4375 5.25228 11.4627 5.19153C11.4879 5.13079 11.5009 5.06567 11.5009 4.9999C11.5009 4.93413 11.4879 4.86901 11.4627 4.80827C11.4375 4.74752 11.4006 4.69234 11.354 4.6459L6.854 0.145899C6.76011 0.0520124 6.63278 -0.000732422 6.5 -0.000732422C6.36722 -0.000732422 6.23989 0.0520124 6.146 0.145899C6.05211 0.239786 5.99937 0.367123 5.99937 0.499899C5.99937 0.632675 6.05211 0.760013 6.146 0.853899L9.793 4.4999Z"
+                              fill="black" />
+                      </svg></a>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="work-card drop-shadow-c">
+                  <img src="{% static 'images/django-girls-swag.jpg' %}" alt="">
+                  <h3 class="sub-headingtitle">Fundraising Coordinator/Trustee</h3>
+                  <p>
+                    I coordinate with both prospective and current sponsors for the Django Girls Foundation to 
+                    ensure it receives adequate funding. Additionally, I give talks and lead sprints at conferences 
+                    on behalf of the foundation to keep the community of volunteers engaged and encourage more 
+                    contributions to its open-source resources.
+                  </p>
+                  <a class="s-link" href="">See my work <svg xmlns="http://www.w3.org/2000/svg" width="12"
+                          height="10" viewBox="0 0 12 10" fill="none">
+                          <path
+                              d="M9.793 4.4999H0.5C0.367392 4.4999 0.240215 4.55258 0.146447 4.64635C0.0526785 4.74011 0 4.86729 0 4.9999C0 5.13251 0.0526785 5.25968 0.146447 5.35345C0.240215 5.44722 0.367392 5.4999 0.5 5.4999H9.793L6.146 9.1459C6.05211 9.23979 5.99937 9.36712 5.99937 9.4999C5.99937 9.63267 6.05211 9.76001 6.146 9.8539C6.23989 9.94779 6.36722 10.0005 6.5 10.0005C6.63278 10.0005 6.76011 9.94779 6.854 9.8539L11.354 5.3539C11.4006 5.30745 11.4375 5.25228 11.4627 5.19153C11.4879 5.13079 11.5009 5.06567 11.5009 4.9999C11.5009 4.93413 11.4879 4.86901 11.4627 4.80827C11.4375 4.74752 11.4006 4.69234 11.354 4.6459L6.854 0.145899C6.76011 0.0520124 6.63278 -0.000732422 6.5 -0.000732422C6.36722 -0.000732422 6.23989 0.0520124 6.146 0.145899C6.05211 0.239786 5.99937 0.367123 5.99937 0.499899C5.99937 0.632675 6.05211 0.760013 6.146 0.853899L9.793 4.4999Z"
+                              fill="black" />
+                      </svg></a>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="work-card drop-shadow-c">
+                  <img src="{% static 'images/opening-remarks.jpg' %}" alt="">
+                  <h3 class="sub-headingtitle">Community and Conferences </h3>
+                  <p> I am the chair of the DjangoCon Africa organising committee and led the organisation of DjangoCon Africa 2023
+                    and DjangoCon/UbuCon Africa 2025.
+                    I have organised many other events, including PyCon Zimbabwe 2016 and 2017, DjangoCon 
+                    Europe 2018, and several Django Girls events. I have spoken at many PyCon and DjangoCon events across the world
+                  </p>
+                  <a class="s-link" href="">See my work <svg xmlns="http://www.w3.org/2000/svg" width="12"
+                          height="10" viewBox="0 0 12 10" fill="none">
+                          <path
+                              d="M9.793 4.4999H0.5C0.367392 4.4999 0.240215 4.55258 0.146447 4.64635C0.0526785 4.74011 0 4.86729 0 4.9999C0 5.13251 0.0526785 5.25968 0.146447 5.35345C0.240215 5.44722 0.367392 5.4999 0.5 5.4999H9.793L6.146 9.1459C6.05211 9.23979 5.99937 9.36712 5.99937 9.4999C5.99937 9.63267 6.05211 9.76001 6.146 9.8539C6.23989 9.94779 6.36722 10.0005 6.5 10.0005C6.63278 10.0005 6.76011 9.94779 6.854 9.8539L11.354 5.3539C11.4006 5.30745 11.4375 5.25228 11.4627 5.19153C11.4879 5.13079 11.5009 5.06567 11.5009 4.9999C11.5009 4.93413 11.4879 4.86901 11.4627 4.80827C11.4375 4.74752 11.4006 4.69234 11.354 4.6459L6.854 0.145899C6.76011 0.0520124 6.63278 -0.000732422 6.5 -0.000732422C6.36722 -0.000732422 6.23989 0.0520124 6.146 0.145899C6.05211 0.239786 5.99937 0.367123 5.99937 0.499899C5.99937 0.632675 6.05211 0.760013 6.146 0.853899L9.793 4.4999Z"
+                              fill="black" />
+                      </svg></a>
+              </div>
+          </div>
+      </div>
+
+  </div>
+</section>
+
+
+{% endblock %}
+
