@@ -31,6 +31,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
+          context: ./website
           push: ${{ github.event_name != 'pull_request' }}
           file: ./website/Dockerfile
           tags: ${{ steps.meta.outputs.tags }}
