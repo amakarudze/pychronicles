@@ -73,7 +73,6 @@ class BlogPage(Page):
             FieldPanel('tags'),
         ], heading="Blog information"),
         FieldPanel('author'),
-        FieldPanel('date'),
         FieldPanel('intro'),
         FieldPanel('text'),
         InlinePanel('gallery_images', label="Gallery images"),

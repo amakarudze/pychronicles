@@ -1,0 +1,14 @@
+{% if search_results %}
+  <h3>Search results</h3>
+  <ul>
+    {% for post in search_results %}
+      <li>
+        <a href="{% url 'blog_detail' post.slug %}">
+          {{ post.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% elif search_query %}
+  <p>No results found.</p>
+{% endif %}

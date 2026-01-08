@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<!-- banner section -->
+<section class="section-gap" style="padding-top: 0;">
+  <div class="container">
+      <!-- Text Content -->
+      <div class="banner-container">
+          <div class="content">
+              <h1>About me</h1>
+              <p>I am software engineer, conference organiser and community leader in the Python/Django community. 
+                I love working with Python and Django for web development and sharing my knowledge with others through 
+                technical writing. I am currently pursuing a MSc in Software Engineering at Blekinge Institute of Technology 
+                in Sweden courtesy of the Swedish Institute Global Professionals Scholarship.</p>
+
+               <p>My coding journey began when I was 14 years old, attending Zimuto High School in Masvingo, 
+                Zimbabwe. I studied Computer Studies for my O Level, and I loved it. We used Windows 95 and 
+                DOS machines back then, coding in BASIC and dBase III for databases.  Internet access was very 
+                limited, and we mainly relied on our teachers and a few textbooks to learn programming. 
+                However, I still enjoyed it and pursued Computing at A Level, followed by a BSc in Computer 
+                Science at Midlands State University. </p>
+
+                <p>After graduation, I planned to work in telecoms, focusing on network engineering and systems 
+                administration to gain additional ICT experience before returning to software engineering and 
+                consultancy after five years. Although I entered consultancy after that period, it took me 
+                some time to return to coding. In 2015, I learnt Python through the Muzinda Hub Digital Skills 
+                programme, using the Treehouse online platform. Since then, I have coded in Python, developed 
+                websites with Django, and actively participated in the Python community.</p>
+                <p>Since 2016, I have organised many events, including several Django Girls events, PyCon Zimbabwe 
+                2016/2017, DjangoCon Europe 2018, and DjangoCon Africa 2023/2025. I have also spoken at many conferences 
+                and delivered keynotes at PyCon Namibia 2017, DjangoCon Europe 2017/2023, PyCon Africa 2019, and DjangoCon 
+                US 2018. I served on the Django Software Foundation Board of Directors from 2018 to 2022, rising from Director 
+                (2018), through Vice President (2019-2020) to President (2021–2022).</p>
+          </div>
+
+          <!-- Image and Labels -->
+          <div class="image-wrapper">
+              <img class="banner-image" src="{% static 'images/opening-remarks.jpg' %}" alt="Person">
+              <img class="background-element" src="{% static 'images/background-element.png' %}" alt="background-element">
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<div class="container">
+   
+</div>
+
+{% endblock %}
