@@ -20,7 +20,7 @@ services:
     build: ./blog
     env_file: ./blog/.env
     environment:
-      DJANGO_SETTINGS_MODULE: website.settings.prod
+      DJANGO_SETTINGS_MODULE: blog.settings.prod
       DJANGO_ENV: prod
     entrypoint: ["./entrypoint.sh"]
     volumes:
