@@ -16,7 +16,7 @@ ENV POETRY_VIRTUALENVS_CREATE=false \
     PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
-COPY pyproject.toml poetry.lock README.md .
+COPY pyproject.toml poetry.lock README.md ./
 
 RUN poetry install --only main --no-interaction --no-ansi --no-root
 
