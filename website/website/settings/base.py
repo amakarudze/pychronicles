@@ -32,10 +32,6 @@ INSTALLED_APPS = [
     'core',
 ]
 
-MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
-]
-
 ROOT_URLCONF = 'website.urls'
 
 TEMPLATES = [
