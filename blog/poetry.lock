@@ -2050,6 +2050,21 @@ optional = ["python-socks", "wsaccel"]
 test = ["pytest", "websockets"]
 
 [[package]]
+name = "whitenoise"
+version = "6.11.0"
+description = "Radically simplified static file serving for WSGI applications"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "whitenoise-6.11.0-py3-none-any.whl", hash = "sha256:b2aeb45950597236f53b5342b3121c5de69c8da0109362aee506ce88e022d258"},
+    {file = "whitenoise-6.11.0.tar.gz", hash = "sha256:0f5bfce6061ae6611cd9396a8231e088722e4fc67bc13a111be74c738d99375f"},
+]
+
+[package.extras]
+brotli = ["brotli"]
+
+[[package]]
 name = "willow"
 version = "1.12.0"
 description = "A Python image library that sits on top of Pillow, Wand and OpenCV"
@@ -2091,4 +2106,4 @@ h11 = ">=0.9.0,<1"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12,<4.0"
-content-hash = "9a676fa829053dab4db77f00daf7b8871685744d8277dd56710efa03740bc253"
+content-hash = "3f7fda4216323c3f7462fd4e365a7bd7e0535bcd56005b5b8775f40843b0be5a"
