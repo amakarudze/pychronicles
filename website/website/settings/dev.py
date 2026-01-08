@@ -10,7 +10,8 @@ SECRET_KEY = os.getenv("SECRET_KEY", "heythere!") # noqa: F405
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-MIDDLEWARE += [ # noqa: F405
+MIDDLEWARE = [ 
+    "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
