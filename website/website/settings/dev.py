@@ -18,8 +18,6 @@ MIDDLEWARE += [ # noqa: F405
     "django.contrib.messages.middleware.MessageMiddleware",
 ] 
 
-INSTALLED_APPS += ["django.contrib.staticfiles"] # noqa: F405
-
 STATICFILES_DIRS = [BASE_DIR / "static"] # noqa: F405
 
 STORAGES = {
