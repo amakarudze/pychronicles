@@ -4,6 +4,9 @@ on: [push, pull_request]
 jobs:
   CI-for-Website-Django-Project:
     runs-on : ubuntu-latest
+    env:
+      DEFAULT_FROM_EMAIL: "no-reply@example.com"
+
     strategy:
       fail-fast: false
       max-parallel: 4
