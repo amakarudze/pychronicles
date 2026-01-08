@@ -10,8 +10,6 @@ SECRET_KEY = os.getenv("SECRET_KEY", "heythere!") # noqa: F405
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-INSTALLED_APPS += ["django.contrib.staticfiles"] # noqa: F405
-
 STATICFILES_DIRS = [BASE_DIR / "static"] # noqa: F405
 
 MIDDLEWARE += [  # noqa: F405
