@@ -1,13 +1,13 @@
-from .base import *
+from .base import * # noqa: F403
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = os.environ["SECRET_KEY"] # noqa: F405
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-MIDDLEWARE += [
+MIDDLEWARE += [ # noqa: F405
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -16,7 +16,7 @@ MIDDLEWARE += [
     "django.contrib.messages.middleware.MessageMiddleware",
 ]
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR / "staticfiles" # noqa: F405
 
 STORAGES = {
     "default": {
@@ -27,8 +27,8 @@ STORAGES = {
     },
 }
 
-RECAPTCHA_PUBLIC_KEY = os.environ["RECAPTCHA_PUBLIC_KEY"]
-RECAPTCHA_PRIVATE_KEY = os.environ["RECAPTCHA_PRIVATE_KEY"]
+RECAPTCHA_PUBLIC_KEY = os.environ["RECAPTCHA_PUBLIC_KEY"] # noqa: F405
+RECAPTCHA_PRIVATE_KEY = os.environ["RECAPTCHA_PRIVATE_KEY"] # noqa: F405
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True

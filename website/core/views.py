@@ -1,10 +1,10 @@
-from collections import deque
 
 import requests
 
 from django.conf import settings
 from django.urls import reverse
 from django.contrib import messages
+from django.shortcuts import render
 
 from django.views.generic import TemplateView
 
