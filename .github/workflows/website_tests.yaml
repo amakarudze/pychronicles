@@ -43,8 +43,8 @@ jobs:
       - name: Setup a local virtual environment for Website
         working-directory: ./accounts
         run: |
-          poetry config virtualenvs.create true --local
-          poetry config virtualenvs.in-project true --local
+          poetry config virtualenvs.create true
+          poetry config virtualenvs.in-project true 
       - uses: actions/cache@v4
         name: Define a cache for the virtual environment based on the dependencies lock file
         with:
