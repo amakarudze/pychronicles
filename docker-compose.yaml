@@ -3,6 +3,7 @@ services:
     build: ./website
     env_file: ./website/.env
     environment:
+      DJANGO_SETTINGS_MODULE: website.settings.prod
       DJANGO_ENV: prod
     entrypoint: ["./entrypoint.sh"]
     volumes:
@@ -19,6 +20,7 @@ services:
     build: ./blog
     env_file: ./blog/.env
     environment:
+      DJANGO_SETTINGS_MODULE: website.settings.prod
       DJANGO_ENV: prod
     entrypoint: ["./entrypoint.sh"]
     volumes:

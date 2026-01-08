@@ -7,8 +7,7 @@ SECRET_KEY = os.environ["SECRET_KEY"] # noqa: F405
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-MIDDLEWARE = [ 
-    "django.middleware.security.SecurityMiddleware",
+MIDDLEWARE += [ # noqa: F405
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
