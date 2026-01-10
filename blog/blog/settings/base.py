@@ -149,7 +149,7 @@ SITE_URL = os.environ.get("SITE_URL", "")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 WAGTAIL_SITE_NAME = 'PyChronicles'
-WAGTAILADMIN_BASE_URL = "https://pychronicles.com"
+WAGTAILADMIN_BASE_URL = "https://pychronicles.com/blog"
 
 WAGTAILAPI_LIMIT_MAX = 50
 WAGTAIL_HEADLESS_PREVIEW = {
