@@ -24,7 +24,8 @@ services:
       DJANGO_ENV: prod
     entrypoint: ["./entrypoint.sh"]
     volumes:
-      - static_blog:/blog/static
+      - ./blog:/blog
+      - ./blog/blog/staticfiles:/staticfiles
     depends_on:
       blog_db:
         condition: service_healthy

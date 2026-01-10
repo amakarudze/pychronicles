@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from wagtail.admin import urls as wagtailadmin_urls
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('cms/', include(wagtailadmin_urls)),
-    path("api/blog/", include("core.urls")),
+    path('blog/admin/', admin.site.urls),
+    path('blog/cms/', include(wagtailadmin_urls)),
+    path("blog/api/blog/", include("core.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
