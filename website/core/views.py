@@ -25,7 +25,7 @@ class BlogPageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
+    
         search = self.request.GET.get("search")
         tag = self.request.GET.get("tag")
 
@@ -34,7 +34,7 @@ class BlogPageView(TemplateView):
                 data = fetch_blog_posts(search, tag)
             else:
                 response = requests.get(
-                    f"{settings.BLOG_API}/api/blog/posts/",
+                    f"{settings.BLOG_API}/posts/",
                     timeout=5,
                 )
                 response.raise_for_status()

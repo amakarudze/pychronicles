@@ -14,7 +14,7 @@ def tags_context(request):
     tags = []
     try:
         tags_response = requests.get(
-            f"{settings.BLOG_API}/api/blog/tags/",
+            f"{settings.BLOG_API}/tags/",
             timeout=5,
         )
         if tags_response.ok:
