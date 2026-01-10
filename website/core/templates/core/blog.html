@@ -5,10 +5,7 @@
 
 {% block content %}
     <div class="row">
-        {% if not posts %}
-        <h5>No posts available at this time </h5>
-        {% endif %}
-
+    
     {% if search_query %}
         {% for post in posts %}
             <div class="mb-5">
