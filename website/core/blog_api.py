@@ -10,7 +10,7 @@ def fetch_blog_posts(search=None, tag=None):
         params["tag"] = tag
 
     response = requests.get(
-        f"{settings.BLOG_API}blog/api/blog/posts/",
+        f"{settings.BLOG_API}/posts/",
         params=params,
         timeout=5,
     )
@@ -20,7 +20,7 @@ def fetch_blog_posts(search=None, tag=None):
 
 def fetch_blog_post(slug):
     response = requests.get(
-        f"{settings.BLOG_API}blog/api/blog/posts/{slug}/",
+        f"{settings.BLOG_API}/posts/{slug}/",
         timeout=5,
     )
     response.raise_for_status()

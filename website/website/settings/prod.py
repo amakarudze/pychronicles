@@ -48,4 +48,4 @@ CSRF_TRUSTED_ORIGINS = [
 
 SECURE_REFERRER_POLICY = "same-origin"
 
-BLOG_API = "https://pychronicles.com"
+BLOG_API = "https://pychronicles.com/blog/api/blog"

@@ -30,3 +30,5 @@ STORAGES = {
 }
 
 SILENCED_SYSTEM_CHECKS = ['django_recaptcha.recaptcha_test_key_error']
+
+BLOG_API = "http://blog:8000/blog/api/blog"
