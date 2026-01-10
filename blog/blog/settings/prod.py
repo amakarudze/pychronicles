@@ -16,7 +16,7 @@ MIDDLEWARE += [ # noqa: F405
     "django.contrib.messages.middleware.MessageMiddleware",
 ]
 
-STATIC_ROOT = "/staticfiles"
+STATIC_ROOT = BASE_DIR / "staticfiles" # noqa: F405
 
 STORAGES = {
     "default": {
