@@ -17,7 +17,11 @@ if [ "$DJANGO_ENV" = "prod" ]; then
   echo "Starting Gunicorn..."
   exec gunicorn blog.wsgi:application \
     --bind 0.0.0.0:8000 \
-    --workers 3
+    --workers 3 \
+    --log-level debug \
+    --error-logfile - \
+    --access-logfile -
+
 else
   echo "Starting Django dev server..."
   exec python manage.py runserver 0.0.0.0:8000
