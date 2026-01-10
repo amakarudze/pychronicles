@@ -34,7 +34,7 @@ class BlogPageView(TemplateView):
                 data = fetch_blog_posts(search, tag)
             else:
                 response = requests.get(
-                    f"{settings.BLOG_API}/api/blog/posts/",
+                    f"{settings.BLOG_API}blog/api/blog/posts/",
                     timeout=5,
                 )
                 response.raise_for_status()

@@ -7,7 +7,6 @@
     <div class="row">
         {% if not posts %}
         <h5>No posts available at this time </h5>
-            </div>
         {% endif %}
 
     {% if search_query %}
@@ -71,6 +70,7 @@
     </div>
     {% endif %}
 
+    {% if paginator %}
     <nav aria-label="...">
         <ul class="pagination">
             <li class="page-item"><a href="#" class="page-link">Previous</a></li>
@@ -82,6 +82,7 @@
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
         </ul>
     </nav>
+    {% endif %}
 </div>
 
 {% endblock %}
