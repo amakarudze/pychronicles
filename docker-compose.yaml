@@ -1,6 +1,6 @@
 services:
   website:
-    image: pychronicles-website:latest
+    image: amakarudze/pychronicles-website:latest
     env_file: ./website/.env
     environment:
       DJANGO_SETTINGS_MODULE: website.settings.prod
@@ -17,7 +17,7 @@ services:
       - "8001:8000"
 
   blog:
-    image: pychronicles-blog:latest
+    image: amakarudze/pychronicles-blog:latest
     env_file: ./blog/.env
     environment:
       DJANGO_SETTINGS_MODULE: blog.settings.prod
