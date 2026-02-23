@@ -7,7 +7,7 @@ services:
       DJANGO_ENV: prod
     entrypoint: ["./entrypoint.sh"]
     volumes:
-      - static_website:/website/static
+      - ./static:/var/www/pychronicles/static
     depends_on:
       blog:
         condition: service_started
