@@ -16,7 +16,7 @@ MIDDLEWARE += [ # noqa: F405
     "django.contrib.messages.middleware.MessageMiddleware",
 ]
 
-STATIC_ROOT = "/var/www/pychronicles/static/" # noqa: F405
+STATIC_ROOT = "/var/www/pychronicles/static/"
 
 STORAGES = {
     "default": {
