@@ -21,8 +21,6 @@ services:
       DJANGO_SETTINGS_MODULE: blog.settings.prod
       DJANGO_ENV: prod
     entrypoint: ["./entrypoint.sh"]
-    volumes:
-      - ./static:/var/www/pychronicles/static
     depends_on:
       blog_db:
         condition: service_healthy
