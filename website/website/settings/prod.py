@@ -17,7 +17,7 @@ MIDDLEWARE += [ # noqa: F405
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-STATIC_ROOT = "/static/"
+STATIC_ROOT = BASE_DIR / "static/"
 
 STORAGES = {
     "default": {
