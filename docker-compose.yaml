@@ -6,8 +6,6 @@ services:
       DJANGO_SETTINGS_MODULE: website.settings.prod
       DJANGO_ENV: prod
     entrypoint: ["./entrypoint.sh"]
-    volumes:
-      - static_volume:/var/www/pychronicles/static
     depends_on:
       blog:
         condition: service_started
@@ -15,6 +13,8 @@ services:
       - internal
     ports:
       - "8001:8000"
+    volumes:
+      - static_volume:/var/www/pychronicles/static
 
   blog:
     image: amakarudze/pychronicles-blog:latest
@@ -55,6 +55,6 @@ networks:
 
 volumes:
   blog_data:
-  static_website:
+  static_volume:
   static_blog:
   media_volume:
