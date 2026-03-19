@@ -708,3 +708,12 @@ footer {
         padding: 40px 0;
     }
 }
+
+.blog-image {
+    max-height: 450px;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* or cover, depending on your preference */
+}
+
+

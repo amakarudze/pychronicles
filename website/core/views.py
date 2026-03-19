@@ -12,6 +12,9 @@ from .blog_api import fetch_blog_posts, fetch_blog_post
 from .forms import ContactForm
 
 
+MEDIA_URL = settings.BLOG_MEDIA_URL
+
+
 class HomePageView(TemplateView):
     template_name = "core/index.html"
 
@@ -62,6 +65,7 @@ class BlogPageView(TemplateView):
 
         context["search_query"] = search
         context["active_tag"] = tag
+        context["media_url"] = MEDIA_URL
 
         return context
 
@@ -75,6 +79,7 @@ class BlogDetailView(TemplateView):
 
         post = fetch_blog_post(slug)
         context["post"] = post
+        context["media_url"] = MEDIA_URL
 
         tag = post["tags"][0] if post.get("tags") else None
 
@@ -107,4 +112,3 @@ class ContactPageView(TemplateView):
             return redirect(reverse("contact"))
 
         return render(request, self.template_name, {"form": form})
-

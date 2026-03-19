@@ -15,11 +15,13 @@
         <div class="text-muted fst-italic mb-2">Posted on {{ post.date }}</div>
             <!-- Post categories-->
             {% for tag in post.tags %}
-            <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{ tag }}</a>
+            <a class="badge bg-secondary text-decoration-none link-light" href="{% url 'blog_posts' %}?tag={{ tag }}">{{ tag }}</a>
             {% endfor %}
         </header>
         <!-- Preview image figure-->
-        <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
+        {% if post.main_image %}
+        <figure class="mb-4"><img class="blog-image" src="{{ media_url }}{{ post.main_image }}" alt="..." /></figure>
+        {% endif %}
         <!-- Post content-->
         <section class="mb-5">
             {{ post.text|safe }}
@@ -32,8 +34,10 @@
         <div class="row">{% endif %}
             <div class="col-md-4">
                 <div class="work-card drop-shadow-c">
-                    <img src="{{ post.main_image }}" alt="">
-                    <h3 class="sub-headingtitle">{{ post.title }}</h3>
+                    {% if post.main_image %}
+                    <img src="{{ media_url }}{{ post.main_image }}" alt="">
+                    {% endif %}
+                    <a href="{% url 'post_detail' post.slug %}"><h3 class="sub-headingtitle">{{ post.title }}</h3></a>
                     <div class="small text-muted">{{ post.first_published_at }}</div>
                     <p>
                         {{ post.intro|safe }}
