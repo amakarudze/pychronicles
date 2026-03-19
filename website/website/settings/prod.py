@@ -50,6 +50,7 @@ CSRF_TRUSTED_ORIGINS = [
 SECURE_REFERRER_POLICY = "same-origin"
 
 BLOG_API = "https://pychronicles.com/blog/api/blog"
+BLOG_MEDIA_URL = "https://pychronicles.com/blog"
 
 LOGGING = {
     "version": 1,

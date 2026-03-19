@@ -49,17 +49,23 @@ class BlogPage(Page):
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
 
     def main_image(self):
-        gallery_item = self.gallery_images.first()
-        if gallery_item:
-            return gallery_item.image
-        else:
+        try: 
+            gallery_item = self.gallery_images.first()
+            if gallery_item:
+                return gallery_item.image.file.url
+            else:
+                return None
+        except IndexError:
             return None
         
     def second_image(self):
-        gallery_item = self.gallery_images.all()[1]
-        if gallery_item:
-            return gallery_item.image
-        else:
+        try:
+            gallery_item = self.gallery_images.all()[1]
+            if gallery_item:
+                return gallery_item.image.file.url
+            else:
+                return None
+        except IndexError:
             return None
 
     search_fields = Page.search_fields + [

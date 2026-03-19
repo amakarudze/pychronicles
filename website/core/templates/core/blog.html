@@ -26,10 +26,12 @@
             {% if featured_post %}
             <!-- Featured blog post-->
             <div class="work-card drop-shadow-c mb-4">
-                <a href="#!"><img class="card-img-top" src="{{ featured_post.main_image }}" alt="..." /></a>
+                {% if featured_post.main_image %}
+                <a href="{% url 'post_detail' featured_post.slug %}"><img class="card-img-top" src="{{ media_url }}{{ featured_post.main_image }}" alt="..." /></a>
+                {% endif %}
                 <div class="card-body">
                     <div class="small text-muted">{{ featured_post.first_published_at }}</div>
-                        <h2 class="card-title">{{ featured_post.title }}</h2>
+                        <a href="{% url 'post_detail' featured_post.slug %}"><h2 class="card-title">{{ featured_post.title }}</h2></a>
                         <p class="card-text">{{ featured_post.intro|safe }}</p>
                         <a class="s-link" href="{% url 'post_detail' featured_post.slug %}">Read more... <svg xmlns="http://www.w3.org/2000/svg" width="12"
                         height="10" viewBox="0 0 12 10" fill="none">
@@ -47,8 +49,10 @@
         <div class="row">{% endif %}
             <div class="col-md-4">
                 <div class="work-card drop-shadow-c">
-                    <img src="{{ post.main_image }}" alt="">
-                    <h3 class="sub-headingtitle">{{ post.title }}</h3>
+                    {%if post.main_image %}
+                    <img src="{{ media_url }}{{ post.main_image }}" alt="">
+                    {% endif %}
+                    <a href="{% url 'post_detail' post.slug %}"><h3 class="sub-headingtitle">{{ post.title }}</h3></a>
                     <div class="small text-muted">{{ post.first_published_at }}</div>
                     <p>
                         {{ post.intro|safe }}
