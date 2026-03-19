@@ -70,5 +70,5 @@ LOGGING = {
     },
 }
 
-MEDIA_ROOT = "/var/www/pychronicles/media"
+MEDIA_ROOT = os.environ["MEDIA_ROOT"] # noqa: F405
 MEDIA_URL = "/media/"
