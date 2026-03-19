@@ -69,3 +69,6 @@ LOGGING = {
         },
     },
 }
+
+MEDIA_ROOT = "/var/www/pychronicles/media"
+MEDIA_URL = "/media/"
