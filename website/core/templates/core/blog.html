@@ -31,7 +31,7 @@
                 {% endif %}
                 <div class="card-body">
                     <div class="small text-muted">{{ featured_post.first_published_at }}</div>
-                        <a href="{% url 'post_detail' featured_post.slug %}"><h2 class="card-title">{{ featured_post.title }}</h2></a>
+                        <a class="s-link" href="{% url 'post_detail' featured_post.slug %}"><h2 class="card-title">{{ featured_post.title }}</h2></a>
                         <p class="card-text">{{ featured_post.intro|safe }}</p>
                         <a class="s-link" href="{% url 'post_detail' featured_post.slug %}">Read more... <svg xmlns="http://www.w3.org/2000/svg" width="12"
                         height="10" viewBox="0 0 12 10" fill="none">
