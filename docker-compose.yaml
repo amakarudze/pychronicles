@@ -6,6 +6,8 @@ services:
       DJANGO_SETTINGS_MODULE: website.settings.prod
       DJANGO_ENV: prod
     entrypoint: ["./entrypoint.sh"]
+    volumes:
+      - static_volume:/var/www/pychronicles/static
     depends_on:
       blog:
         condition: service_started
@@ -31,7 +33,6 @@ services:
     volumes:
       - media_volume:/var/www/pychronicles/media
 
-
   blog_db:
     image: postgres:18
     env_file: .env 
@@ -54,4 +55,6 @@ networks:
 
 volumes:
   blog_data:
+  static_website:
+  static_blog:
   media_volume:
