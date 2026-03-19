@@ -17,7 +17,7 @@ MIDDLEWARE += [ # noqa: F405
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-STATIC_ROOT = "/var/www/pychronicles/static/"
+STATIC_ROOT = os.environ["STATIC_ROOT"] # noqa: F405
 
 STORAGES = {
     "default": {
