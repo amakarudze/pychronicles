@@ -56,7 +56,5 @@ networks:
   internal:
 
 volumes:
-  blog_data:
-  static_volume:
-  static_blog:
+  blog_data:S
   media_volume:
