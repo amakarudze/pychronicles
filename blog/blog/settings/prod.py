@@ -18,6 +18,7 @@ MIDDLEWARE += [ # noqa: F405
 ]
 
 STATIC_ROOT = os.environ["STATIC_ROOT"] # noqa: F405
+STATIC_URL = "/blog-static/"
 
 STORAGES = {
     "default": {
