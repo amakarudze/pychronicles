@@ -14,8 +14,6 @@ services:
       - internal
     ports:
       - "8001:8000"
-    volumes:
-      - static_volume:/var/www/pychronicles/static
 
   blog:
     build: ./blog
@@ -56,5 +54,5 @@ networks:
   internal:
 
 volumes:
-  blog_data:S
+  blog_data:
   media_volume:
