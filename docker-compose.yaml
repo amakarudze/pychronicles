@@ -1,6 +1,7 @@
 services:
   website:
     build: ./website
+    image: amakarudze/pychronicles-website:latest
     env_file: ./website/.env
     environment:
       DJANGO_SETTINGS_MODULE: website.settings.prod
@@ -18,6 +19,7 @@ services:
 
   blog:
     build: ./blog
+    image: amakarudze/pychronicles-blog:latest
     env_file: ./blog/.env
     environment:
       DJANGO_SETTINGS_MODULE: blog.settings.prod
