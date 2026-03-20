@@ -11,8 +11,8 @@ echo "Running migrations..."
 python manage.py migrate --noinput
 
 if [ "$DJANGO_ENV" = "prod" ]; then
-  echo "Collecting static files..."
-  python manage.py collectstatic --noinput
+  # echo "Collecting static files..."
+  # python manage.py collectstatic --noinput
 
   echo "Starting Gunicorn..."
   exec gunicorn blog.wsgi:application \
