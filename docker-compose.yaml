@@ -34,7 +34,6 @@ services:
       - "8002:8000"
     volumes:
       - media_volume:/var/www/pychronicles/media
-      - /home/deployer/pychronicles/static:/home/deployer/pychronicles/static
 
   blog_db:
     image: postgres:18
