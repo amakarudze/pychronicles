@@ -31,6 +31,8 @@
                 {% elif block.type == "heading" %}
                     <h2>{{ block.value }}</h2>
 
+                {% elif block.type == "markdown" %}
+                    <pre><code>{{ block.value|escape }}</code></pre>
                 {% else %}
                     <!-- fallback -->
                     <div>{{ block.value }}</div>
