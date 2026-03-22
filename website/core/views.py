@@ -78,7 +78,7 @@ class BlogDetailView(TemplateView):
         slug = self.kwargs["slug"]
 
         post = fetch_blog_post(slug)
-        blocks = json.loads(post.text)
+        blocks = json.loads(post["text"])
         context["post"] = post
         context["blocks"] = blocks
         context["media_url"] = MEDIA_URL
