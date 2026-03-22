@@ -1,4 +1,4 @@
-
+import json
 import requests
 
 from django.conf import settings
@@ -78,7 +78,9 @@ class BlogDetailView(TemplateView):
         slug = self.kwargs["slug"]
 
         post = fetch_blog_post(slug)
+        blocks = json.loads(post.text)
         context["post"] = post
+        context["blocks"] = blocks
         context["media_url"] = MEDIA_URL
 
         tag = post["tags"][0] if post.get("tags") else None

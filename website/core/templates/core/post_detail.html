@@ -24,7 +24,7 @@
         {% endif %}
         <!-- Post content-->
         <section class="mb-5">
-            {% for block in post.text %}
+            {% for block in blocks %}
                 {% if block.type == "paragraph" %}
                     <p>{{ block.value|linebreaksbr }}</p>
 
