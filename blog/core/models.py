@@ -5,10 +5,13 @@ from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.fields import ParentalKey
 from taggit.models import TaggedItemBase
 
+from wagtail import blocks
+from wagtail.images.blocks import ImageBlock
 from wagtail.admin.panels import FieldPanel, InlinePanel, MultiFieldPanel
-from wagtail.fields import RichTextField
+from wagtail.fields import RichTextField, StreamField
 from wagtail.models import Page, Orderable
 from wagtail.search import index
+from wagtailmarkdown.blocks import MarkdownBlock
 
 
 class HomePage(Page):
@@ -45,7 +48,18 @@ class BlogPage(Page):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
-    text = RichTextField(blank=True)
+    text = StreamField([
+        ('heading', blocks.CharBlock(form_classname="title")),
+        ('paragraph', blocks.RichTextBlock()),
+        ('image', ImageBlock()),
+        ('markdown', MarkdownBlock()),
+    ], 
+    null=True,
+    blank=True,
+    block_counts={
+        'heading': {'min_num': 1},
+        'image': {'max_num': 5},
+    })
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
 
     def main_image(self):

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "wagtail.api.v2",
     "wagtail_headless_preview",
+    "wagtailmarkdown",
     # Blog core
     'core',
 ]
