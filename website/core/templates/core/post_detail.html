@@ -24,7 +24,19 @@
         {% endif %}
         <!-- Post content-->
         <section class="mb-5">
-            {{ post.text|safe }}
+            {% for block in post.text %}
+                {% if block.type == "paragraph" %}
+                    <p>{{ block.value|linebreaksbr }}</p>
+
+                {% elif block.type == "heading" %}
+                    <h2>{{ block.value }}</h2>
+
+                {% else %}
+                    <!-- fallback -->
+                    <div>{{ block.value }}</div>
+                {% endif %}
+            {% endfor %}
+
         </section>
     </article>
     {% endif %}
