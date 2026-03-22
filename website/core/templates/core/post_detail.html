@@ -26,7 +26,7 @@
         <section class="mb-5">
             {% for block in blocks %}
                 {% if block.type == "paragraph" %}
-                    <p>{{ block.value|richtext }}</p>
+                    <p>{{ block.value|safe }}</p>
 
                 {% elif block.type == "heading" %}
                     <h2>{{ block.value }}</h2>
